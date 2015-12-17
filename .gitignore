@@ -26,3 +26,22 @@
 *.exe
 *.out
 *.app
+
+# Don't commit the following directories created by pub.
+.buildlog
+.pub/
+build/
+packages
+.packages
+bin/logs/
+logs
+
+# Include when developing application packages.
+pubspec.lock
+
+# IntelliJ Idea
+.project
+*.iml
+*.ipr
+*.iws
+.idea/
