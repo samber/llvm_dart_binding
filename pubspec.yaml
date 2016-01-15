@@ -1,0 +1,6 @@
+name: llvm_binder
+homepage: http://github.com/samber/llvm_dart_binding
+dev_dependencies:
+  test: ">=0.12.0 <0.13.0"
+environment:
+  sdk: ">=1.13.0 <2.0.0"

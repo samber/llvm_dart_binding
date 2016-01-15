@@ -1,0 +1,11 @@
+language: dart
+dart:
+  - stable
+  - dev
+
+install:
+  - pub get
+
+script:
+  - pub run test test/types_tests.dart
+
