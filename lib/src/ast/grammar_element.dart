@@ -5,9 +5,7 @@ abstract class GrammarElement {
   String bnf_key = "";
   var childs = [];
   
-  GrammarElement(this.token, this.bnf_key);
+  GrammarElement(this.token);
   
   String to_llvm_ir();
-  
-  void check_syntax();
 }
