@@ -1,27 +1,14 @@
-part of llvm_dart.types;
-
-abstract class Instruction {
-  
-}
-
-abstract class TerminatorInstruction implements Instruction {
-  
-}
+part of llvm_dart.instructions;
 
 abstract class BinaryInstruction implements Instruction {
   Value a, b;
   AddressValue returnValue;
   String operand;
-  
+
   BinaryInstruction(this.operand, this.a, this.b, this.returnValue);
-  
+
   String toString() => "${returnValue} = ${operand} ${returnValue.type} ${a}, ${b}";
 }
-
-abstract class MemoryInstruction implements Instruction {
-  
-}
-
 
 abstract class AddBinaryInstruction extends BinaryInstruction {
   AddBinaryInstruction(operand, a, b, returnValue): super(operand, a, b, returnValue);
@@ -59,14 +46,4 @@ class IntMulBinaryInstruction extends MulBinaryInstruction {
 
 class FloatMulBinaryInstruction extends MulBinaryInstruction {
   FloatMulBinaryInstruction(a, b, returnValue): super("fmul", a, b, returnValue);
-}
-
-
-
-class RetTerminatorInstruction implements TerminatorInstruction {
-  var value;
-  
-  RetTerminatorInstruction([this.value = null]);
-  
-  String toString() => value ? "ret void" : "ret ${value.type} ${value}";
 }

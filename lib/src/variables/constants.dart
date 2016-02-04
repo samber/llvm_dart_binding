@@ -1,18 +1,18 @@
-part of llvm_dart.types;
+part of llvm_dart.variables;
 
 abstract class Value {
   var value;
   final Type type;
-  
+
   Value(this.type);
 }
 
 abstract class AddressValue extends Value {
   final String scope;
   final String varName;
-  
+
   AddressValue(type, this.scope, this.varName): super(type);
-  
+
   String toString() => "${scope}${varName}";
 }
 
@@ -56,5 +56,3 @@ class NullConstantValue extends Value {
 
   String toString() => "null";
 }
-
-
