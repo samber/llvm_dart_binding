@@ -10,6 +10,8 @@ abstract class BinaryInstruction implements Instruction {
   String toString() => "${returnValue} = ${operand} ${returnValue.type} ${a}, ${b}";
 }
 
+
+/* ADD */
 abstract class AddBinaryInstruction extends BinaryInstruction {
   AddBinaryInstruction(operand, a, b, returnValue): super(operand, a, b, returnValue);
 }
@@ -23,6 +25,7 @@ class FloatAddBinaryInstruction extends AddBinaryInstruction {
 }
 
 
+/* SUB */
 abstract class SubBinaryInstruction extends BinaryInstruction {
   SubBinaryInstruction(operand, a, b, returnValue): super(operand, a, b, returnValue);
 }
@@ -36,6 +39,7 @@ class FloatSubBinaryInstruction extends SubBinaryInstruction {
 }
 
 
+/* MUL */
 abstract class MulBinaryInstruction extends BinaryInstruction {
   MulBinaryInstruction(operand, a, b, returnValue): super(operand, a, b, returnValue);
 }

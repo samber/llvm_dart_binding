@@ -9,5 +9,5 @@ class RetTerminatorInstruction implements TerminatorInstruction {
 
   RetTerminatorInstruction([this.value = null]);
 
-  String toString() => value ? "ret void" : "ret ${value.type} ${value}";
+  String toString() => value == null ? "ret void" : "ret ${value.type} ${value.toString()}";
 }

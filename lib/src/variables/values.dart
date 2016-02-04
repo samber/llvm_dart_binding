@@ -30,7 +30,7 @@ class IntConstantValue extends Value {
     this.value = value;
   }
 
-  String toString() => value;
+  String toString() => value.toString();
 }
 
 class BoolConstantValue extends Value {
@@ -38,7 +38,7 @@ class BoolConstantValue extends Value {
     this.value = value;
   }
 
-  String toString() => value;
+  String toString() => value.toString();
 }
 
 class FloatConstantValue extends Value {
@@ -46,7 +46,7 @@ class FloatConstantValue extends Value {
     this.value = value;
   }
 
-  String toString() => value;
+  String toString() => value.toString();
 }
 
 class NullConstantValue extends Value {

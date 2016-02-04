@@ -34,5 +34,5 @@ class VectorType implements Type {
 
   VectorType(this.type, this.size);
 
-  String toString() => "<${size} ${type}>";
+  String toString() => "<${size} x ${type}>";
 }

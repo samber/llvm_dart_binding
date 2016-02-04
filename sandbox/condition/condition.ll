@@ -1,16 +1,17 @@
-; ModuleID = 'add.c'
+; ModuleID = 'condition.c'
 target datalayout = "e-m:e-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-redhat-linux-gnu"
 
 ; Function Attrs: nounwind readnone uwtable
-define i32 @add(i32 %a, i32 %b) #0 {
-  %1 = add nsw i32 %b, %a
-  ret i32 %1
+define i32 @condition(i32 %a, i32 %b) #0 {
+  %1 = icmp eq i32 %a, 42
+  %a.b = select i1 %1, i32 42, i32 %b
+  ret i32 %a.b
 }
 
 ; Function Attrs: nounwind readnone uwtable
 define i32 @main(i32 %ac, i8** nocapture readnone %av) #0 {
-  %1 = tail call i32 @add(i32 42, i32 21)
+  %1 = tail call i32 @condition(i32 42, i32 21)
   ret i32 %1
 }
 
