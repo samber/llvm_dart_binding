@@ -1,7 +1,7 @@
 part of llvm_dart.variables;
 
 class Label {
-  var name;
+  final name;
 
   Label(this.name);
 

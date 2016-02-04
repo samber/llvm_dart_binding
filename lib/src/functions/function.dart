@@ -1,8 +1,8 @@
 part of llvm_dart.functions;
 
 class BasicBlock {
-  Label label;
-  List<Instruction> instructions;
+  final Label label;
+  final List<Instruction> instructions;
 
   BasicBlock(this.instructions, [this.label]);
 
@@ -14,16 +14,16 @@ class BasicBlock {
 }
 
 class Function {
-  String functionName;
-  Type resultType;
-  List<Value> arguments;
-  List<BasicBlock> basicBlocks;
+  final FunctionType type;
+  final String name;
+  final List<Value> arguments;
+  final List<BasicBlock> basicBlocks;
 
-  Function(this.functionName, this.resultType, this.arguments, this.basicBlocks);
+  Function(this.type, this.name, this.arguments, this.basicBlocks);
 
   String toString() {
     var res = new StringBuffer();
-    res.write("define ${resultType} @${functionName}(");
+    res.write("define ${type.returnType} @${name}(");
 
     // print arguments
     var it = arguments.iterator;

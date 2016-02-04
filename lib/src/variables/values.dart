@@ -25,6 +25,7 @@ class LocalAddressValue extends AddressValue {
 }
 
 
+
 class IntConstantValue extends Value {
   IntConstantValue(value): super(new IntType(64)) {
     this.value = value;

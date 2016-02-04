@@ -18,7 +18,12 @@ void main() {
 
     basicBlocks.add(new BasicBlock(instructions));
 
-    var function = new Function("addition", new IntType(32), arguments, basicBlocks);
+    FunctionType functionType = new FunctionType(new IntType(32), [
+      new IntType(32),
+      new IntType(32)
+    ]);
+
+    var function = new Function(functionType, "addition", arguments, basicBlocks);
 
     expect(function.toString(), """define i32 @addition(i32 %a, i32 %b) {
 	%retValueAdd = add i32 %a, %b

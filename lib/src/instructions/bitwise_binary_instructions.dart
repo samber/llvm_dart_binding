@@ -1,9 +1,9 @@
 part of llvm_dart.instructions;
 
 abstract class BitwiseBinaryInstruction implements Instruction {
-  Value a, b;
-  AddressValue returnValue;
-  String operand;
+  final Value a, b;
+  final AddressValue returnValue;
+  final String operand;
 
   BitwiseBinaryInstruction(this.operand, this.a, this.b, this.returnValue);
 
