@@ -5,10 +5,18 @@
 [Work in progress]
 
 Compilation from C to llvm ir:
+```
 $ clang -S -emit-llvm fac.c
+```
 or
+```
 $ clang -S -emit-llvm fac.c -O1
+```
 or
+```
 $ clang -S -emit-llvm fac.c -O2
+```
 or
+```
 $ clang -S -emit-llvm fac.c -O3
+```
