@@ -49,7 +49,7 @@ class Function {
     var res = new StringBuffer();
 
     String headers = _toStringHeaders();
-    if (headers.length == 0)
+    if (headers.length)
       headers += " ";
 
     if (this.basicBlocks == null || this.basicBlocks.length == 0) {
