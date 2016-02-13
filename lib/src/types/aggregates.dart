@@ -1,4 +1,4 @@
-part of llvm_dart.variables;
+part of llvm_dart.types;
 
 abstract class AggregateType extends Type {
 }

@@ -6,7 +6,7 @@ abstract class MemoryInstruction implements Instruction {
 class AllocaMemoryInstruction implements MemoryInstruction {
   AddressValue returnValue;
   IntConstantValue nbrElements;
-  final int align;
+  final Alignment align;
   
   AllocaMemoryInstruction(returnedVarName, type, [this.nbrElements, this.align]) {
     if (this.nbrElements == null)
@@ -29,11 +29,9 @@ class AllocaMemoryInstruction implements MemoryInstruction {
     str += " ";
     str += this.nbrElements.toString();
     
-    if (this.align != null) {
-      str += ", align ";
-      str += this.align.toString();
-    }
-    
+    if (this.align != null)
+      str += ", ${this.align}";
+
     return str;
   }
 }

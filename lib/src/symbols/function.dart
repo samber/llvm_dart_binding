@@ -1,4 +1,4 @@
-part of llvm_dart.functions;
+part of llvm_dart.symbols;
 
 class BasicBlock {
   final Label label;
@@ -13,6 +13,14 @@ class BasicBlock {
   }
 }
 
+class Label {
+  final name;
+
+  Label(this.name);
+
+  String toString() => name;
+}
+
 class Function {
   final FunctionType type;
   final String name;
@@ -24,17 +32,34 @@ class Function {
 
   Function(this.type, this.name, this.arguments, [this.basicBlocks, this.linkage, this.visibility, this.dllStorage]);
 
+  String _toStringHeaders() {
+    List<String> headers = [];
+
+    if (this.linkage != null)
+      headers.add(this.linkage);
+    if (this.visibility != null)
+      headers.add(this.visibility);
+    if (this.dllStorage != null)
+      headers.add(this.dllStorage);
+
+    return headers.join(" ");
+  }
+
   String toString() {
     var res = new StringBuffer();
+
+    String headers = _toStringHeaders();
+    if (headers.length == 0)
+      headers += " ";
 
     if (this.basicBlocks == null || this.basicBlocks.length == 0) {
       //
       // if declaration
       //
-      res.write("declare ${type.returnType} @${name}(");
+      res.write("declare ${headers}${this.type.returnType} @${this.name}(");
 
       // print arguments
-      var it = arguments.iterator;
+      var it = this.arguments.iterator;
       it.moveNext();
       if (it.current != null)
         res.write("${it.current.type} ${it.current}");
@@ -48,10 +73,10 @@ class Function {
       //
       // if definition
       //
-      res.write("define ${type.returnType} @${name}(");
+      res.write("define ${headers}${this.type.returnType} @${this.name}(");
 
       // print arguments
-      var it = arguments.iterator;
+      var it = this.arguments.iterator;
       it.moveNext();
       if (it.current != null)
         res.write("${it.current.type} ${it.current}");
@@ -62,7 +87,7 @@ class Function {
 
       res.write(") {\n");
 
-      res.writeln(basicBlocks.join("\n"));
+      res.writeln(this.basicBlocks.join("\n"));
 
       res.writeln("}");
     }

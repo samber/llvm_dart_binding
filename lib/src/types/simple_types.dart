@@ -1,8 +1,5 @@
-part of llvm_dart.variables;
+part of llvm_dart.types;
 
-abstract class Type {
-  int bytes = 0;
-}
 
 class IntType extends Type {
   final int bits;

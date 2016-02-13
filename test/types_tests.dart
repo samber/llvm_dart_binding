@@ -1,7 +1,7 @@
 import "package:test/test.dart";
 import "package:llvm_binder/llvm_dart.dart";
 import 'package:llvm_binder/src/instructions/instructions.dart';
-import 'package:llvm_binder/src/variables/variables.dart';
+import 'package:llvm_binder/src/types/types.dart';
 
 void main() {
   test("test Function + LocalAddressValue + IntType + Value + IntAddBinaryInstruction", () {
